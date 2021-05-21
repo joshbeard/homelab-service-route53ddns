@@ -1,0 +1,6 @@
+version: '3.8'
+
+services:
+  home:
+    image: sjmayotte/route53-dynamic-dns:latest
+    env_file: $ROUTE53_DDNS_CONFIG
