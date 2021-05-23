@@ -4,9 +4,15 @@ stages:
 swarm:
   image: docker:20
   stage: deploy
-  script:
+  before_script:
+    # Set deployment variables for Docker Swarm
+    # These DEPLOY_* variables are set under GitLab ci/cd variables.
+    - export DOCKER_CERT_PATH=$DEPLOY_DOCKER_CERT_PATH
+    - export DOCKER_TLS_VERIFY=$DEPLOY_DOCKER_TLS_VERIFY
+    - export DOCKER_HOST=$DEPLOY_DOCKER_HOST
     - mkdir -p $DOCKER_CERT_PATH
-    - cp $DOCKER_TLS_CACERT $DOCKER_CERT_PATH/ca.pem
-    - cp $DOCKER_TLS_CERT $DOCKER_CERT_PATH/cert.pem
-    - cp $DOCKER_TLS_KEY $DOCKER_CERT_PATH/key.pem
+    - cp $DEPLOY_DOCKER_TLS_CACERT $DOCKER_CERT_PATH/ca.pem
+    - cp $DEPLOY_DOCKER_TLS_CERT $DOCKER_CERT_PATH/cert.pem
+    - cp $DEPLOY_DOCKER_TLS_KEY $DOCKER_CERT_PATH/key.pem
+  script:
     - docker stack deploy -c docker-compose.yml route53-ddns
