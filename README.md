@@ -21,3 +21,14 @@ Once a `.env` file is configured, simply start the service with
 ```shell
 docker-compose up
 ```
+
+## Configuration
+
+The configuration uses environment variables.
+
+For deployments on my homelab, the GitLab CI/CD vars are used for specifying configurations.
+
+These are protected _file_ variables.
+
+Refer to <https://code.home.jbeard.dev/homelab/services/route53-ddns/-/settings/ci_cd> for
+these configurations.
