@@ -30,5 +30,15 @@ For deployments on my homelab, the GitLab CI/CD vars are used for specifying con
 
 These are protected _file_ variables.
 
-Refer to <https://code.home.jbeard.dev/homelab/services/route53-ddns/-/settings/ci_cd> for
-these configurations.
+Refer to the [`.env.example`](.env.example).
+
+```shell
+AWS_ACCESS_KEY_ID=AKXXXXXXXXXXXXXXXXQR
+AWS_SECRET_ACCESS_KEY=mq7vyxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/B
+AWS_REGION=us-west-2
+ROUTE53_DOMAIN=foo.co
+ROUTE53_HOSTED_ZONE_ID=Z04xxxxxxxxxxxxxxxxxR
+ROUTE53_TTL=300
+ROUTE53_TYPE=A
+LOG_TO_STDOUT=true
+```
