@@ -2,7 +2,7 @@ stages:
   - deploy
 
 swarm:
-  image: docker:20
+  image: docker:23
   stage: deploy
   before_script:
     # Set deployment variables for Docker Swarm
